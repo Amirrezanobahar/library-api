@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "9a276fbb-8573-41e3-95cb-d129dfc8d434",
+		"name": "library api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41802344"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"userName\":\"{{$randomFullName}}\" ,\r\n    \"email\":\"{{$randomFullName}}\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change User to Admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/upgrade?id={{$guid}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"upgrade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{$guid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Crime To User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"crime\":36125\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users?id=67a7fd0d0d48bca78ba01a64",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "67a7fd0d0d48bca78ba01a64"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"email\": \"{{$randomFullName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/books",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Book For Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/books?id={{$randomUUID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{$randomUUID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"{{$randomFullName}}\",\r\n    \"author\": \"{{$randomFullName}}\",\r\n    \"price\": {{$randomPrice}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{$url}}/api/books",
+							"host": [
+								"{{$url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Back book to library",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/books/back?id={{$guid}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"back"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{$guid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Book Datas with Id and request body",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"31323132\",\r\n    \"author\": \"33143314\",\r\n    \"price\": 25634\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/books?id={{$guid}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{$guid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rents",
+			"item": [
+				{
+					"name": "Rent a new Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userID\": \"{{$guid}}\",\r\n    \"bookID\": \"{{$guid}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/books/rent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"rent"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
